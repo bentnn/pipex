@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/aabet/projects/pipex/pipex/main.c
+stdio.h
+-
+unistd.h
+-
+sys/wait.h
+-
+errno.h
+-
+string.h
+-
+stdlib.h
+-
+

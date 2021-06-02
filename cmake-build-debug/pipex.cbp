@@ -78,7 +78,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/aabet/projects/pipex/pipex/ft_split.c">
+			<Option target="pipex"/>
+		</Unit>
 		<Unit filename="/Users/aabet/projects/pipex/pipex/main.c">
+			<Option target="pipex"/>
+		</Unit>
+		<Unit filename="/Users/aabet/projects/pipex/pipex/pipex.h">
 			<Option target="pipex"/>
 		</Unit>
 		<Unit filename="/Users/aabet/projects/pipex/pipex/CMakeLists.txt">
