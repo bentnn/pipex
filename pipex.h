@@ -8,6 +8,14 @@
 #include <string.h>
 #include <stdlib.h>
 
+typedef struct s_data
+{
+	int argc;
+	char **argv;
+	char **env;
+	char **paths;
+}				t_data;
+
 char	**ft_split(char const *s, char c);
 
 #endif

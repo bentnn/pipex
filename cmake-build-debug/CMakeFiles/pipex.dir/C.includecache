@@ -6,7 +6,15 @@
 
 #IncludeRegexTransform: 
 
+/Users/aabet/projects/pipex/pipex/ft_split.c
+pipex.h
+/Users/aabet/projects/pipex/pipex/pipex.h
+
 /Users/aabet/projects/pipex/pipex/main.c
+pipex.h
+/Users/aabet/projects/pipex/pipex/pipex.h
+
+/Users/aabet/projects/pipex/pipex/pipex.h
 stdio.h
 -
 unistd.h
