@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/aabet/projects/pipex/pipex/first_cmd.c">
+			<Option target="pipex"/>
+		</Unit>
 		<Unit filename="/Users/aabet/projects/pipex/pipex/ft_split.c">
 			<Option target="pipex"/>
 		</Unit>

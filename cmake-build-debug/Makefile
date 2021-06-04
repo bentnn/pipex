@@ -142,6 +142,33 @@ pipex/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/build
 .PHONY : pipex/fast
 
+first_cmd.o: first_cmd.c.o
+
+.PHONY : first_cmd.o
+
+# target to build an object file
+first_cmd.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/first_cmd.c.o
+.PHONY : first_cmd.c.o
+
+first_cmd.i: first_cmd.c.i
+
+.PHONY : first_cmd.i
+
+# target to preprocess a source file
+first_cmd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/first_cmd.c.i
+.PHONY : first_cmd.c.i
+
+first_cmd.s: first_cmd.c.s
+
+.PHONY : first_cmd.s
+
+# target to generate assembly for a file
+first_cmd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/first_cmd.c.s
+.PHONY : first_cmd.c.s
+
 ft_split.o: ft_split.c.o
 
 .PHONY : ft_split.o
@@ -205,6 +232,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... pipex"
+	@echo "... first_cmd.o"
+	@echo "... first_cmd.i"
+	@echo "... first_cmd.s"
 	@echo "... ft_split.o"
 	@echo "... ft_split.i"
 	@echo "... ft_split.s"

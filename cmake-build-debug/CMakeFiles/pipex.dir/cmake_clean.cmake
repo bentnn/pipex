@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/pipex.dir/first_cmd.c.o"
   "CMakeFiles/pipex.dir/ft_split.c.o"
   "CMakeFiles/pipex.dir/main.c.o"
   "pipex"

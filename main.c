@@ -12,9 +12,9 @@ int	ft_strncmp(const char *str1, const char *str2, size_t num)
 	return ((unsigned char)str1[pos] - (unsigned char)str2[pos]);
 }
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	size_t	size;
+	int	size;
 
 	size = 0;
 	while (*str)
@@ -34,7 +34,7 @@ void ft_putstr_fd(const char *str, int fd)
 		i = 0;
 		while (str[i])
 		{
-			write(fd, &str[i], 2);
+			write(fd, &str[i], 1);
 			i++;
 		}
 	}
@@ -77,10 +77,28 @@ void clear_paths(char **paths, int size)
 	free(paths);
 }
 
+char *full_path_line(const char *path, int start, int i)
+{
+	int j;
+	char *res;
+
+	res = malloc(sizeof(char) * (i - start + 1));
+	if (!res)
+		return (NULL);
+	j = 0;
+	while (start < i)
+	{
+		res[j] = path[start];
+		start++;
+		j++;
+	}
+	res[j] = '\0';
+	return (res);
+}
+
 char **full_paths(char **res, int size, const char *path)
 {
 	int i;
-	int j;
 	int start;
 
 	i = 5;
@@ -90,20 +108,13 @@ char **full_paths(char **res, int size, const char *path)
 		start = i;
 		while (path[i] && path[i] != ':')
 			i++;
-		res[size] = malloc(sizeof(char) * (i - start + 1));
+		res[size] = full_path_line(path, start, i);
 		if (!res[size])
 		{
 			clear_paths(res, size);
 			return (NULL);
 		}
-		j = 0;
-		while (start < i)
-		{
-			res[size][j] = path[start];
-			start++;
-			j++;
-		}
-		res[size++][j] = '\0';
+		size++;
 		i += (path[i] == ':');
 	}
 	res[size] = NULL;
@@ -141,22 +152,203 @@ void error_and_exit(const char *str)
 	exit(1);
 }
 
-void use_cmd(t_data *data)
+void close_pipes(int **fd, int size)
 {
-	int fd[data->argc - 4][2];
 	int i;
-	int res;
-	int id[data->argc - 3];
 
+	i = 0;
+	while (i < size)
+	{
+		close(fd[i][0]);
+		close(fd[i][1]);
+		free(fd[i]);
+		i++;
+	}
+	free(fd);
+}
+
+char *create_path_to_cmd(t_data *data, char *cmd, int pathi)
+{
+	int i;
+	int j;
+	char *res;
+
+	res = malloc(sizeof(char) * (ft_strlen(data->paths[pathi]) +
+			ft_strlen(cmd) + 2));
+	if (!res)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (data->paths[pathi][j])
+	{
+		res[i] = data->paths[pathi][j++];
+		i++;
+	}
+	res[i++] = '/';
+	j = 0;
+	while (cmd[j])
+	{
+		res[i] = cmd[j++];
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
+}
+
+void central_cmd(t_data *data, int **fd, int cmd)
+{
+	char *path;
+	char **commands;
+	int i;
+	int fd_stdout;
+
+	fd_stdout = dup(STDOUT_FILENO);
+	dup2(fd[cmd - 3][0], STDIN_FILENO);
+	dup2(fd[cmd - 2][1], STDOUT_FILENO);
+	close_pipes(fd, data->argc - 4);
+	commands = ft_split(data->argv[cmd], ' ');
+	if (!commands)
+	{
+		ft_putstr_fd("Malloc error\n", fd_stdout);
+		exit(1);
+	}
+	i = 0;
+	while (data->paths[i] != NULL)
+	{
+		path = create_path_to_cmd(data, commands[0], i);
+		if (!path)
+		{
+			ft_putstr_fd("Error with malloc\n", fd_stdout);
+			exit(1);
+		}
+		execve(path, commands, data->env);
+		i++;
+	}
+	ft_putstr_fd("Error: Problem with command \"", fd_stdout);
+	ft_putstr_fd(data->argv[cmd], fd_stdout);
+	ft_putstr_fd("\"\n", fd_stdout);
+	exit(1);
+}
+
+void last_cmd(t_data *data, int **fd)
+{
+	int file_fd;
+	char *path;
+	char **commands;
+	int i;
+	int fd_stdout;
+
+	file_fd = open(data->argv[data->argc - 1], O_CREAT | O_TRUNC| O_WRONLY);
+	if (file_fd == -1 || write(file_fd, 0, 0) == -1)
+	{
+		if (file_fd != -1)
+			close(file_fd);
+		close_pipes(fd, data->argc - 4);
+		error_and_exit("Error: Problem with last file\n");
+	}
+	fd_stdout = dup(STDOUT_FILENO);
+	dup2(fd[data->argc - 5][0], STDIN_FILENO);
+	dup2(file_fd, STDOUT_FILENO);
+	close_pipes(fd, data->argc - 4);
+	close(file_fd);
+	commands = ft_split(data->argv[data->argc - 2], ' ');
+	if (!commands)
+	{
+		ft_putstr_fd("Malloc error\n", fd_stdout);
+		exit(1);
+	}
+	i = 0;
+	while (data->paths[i] != NULL)
+	{
+		path = create_path_to_cmd(data, commands[0], i);
+		if (!path)
+		{
+			ft_putstr_fd("Error with malloc\n", fd_stdout);
+			exit(1);
+		}
+		execve(path, commands, data->env);
+		free(path);
+		i++;
+	}
+	ft_putstr_fd("Error: Problem with last command\n", fd_stdout);
+	exit(1);
+}
+
+void wait_ids(int *id, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		waitpid(id[i], 0, 0);
+		i++;
+	}
+}
+
+int **create_fd(t_data *data)
+{
+	int i;
+	int **fd;
+	int res;
+
+	fd = malloc(sizeof(int *) * (data->argc - 3));
+	if (!fd)
+		return (NULL);
 	i = 0;
 	while (i < data->argc - 4)
 	{
+		fd[i] = malloc(sizeof(int) * 2);
+		if (!fd[i])
+			error_and_exit("Malloc error\n");
 		res = pipe(fd[i]);
 		if (res == -1)
 			error_and_exit("Error with pipes\n");
 		i++;
 	}
+	fd[i] = NULL;
+	return (fd);
+}
 
+void use_cmd(t_data *data)
+{
+	int **fd;
+	int i;
+	int id[data->argc - 3];
+
+	fd = create_fd(data);
+	id[0] = fork();
+	if (id[0] == -1)
+	{
+		close_pipes(fd, data->argc - 4);
+		error_and_exit("Error with fork\n");
+	}
+	if (id[0] == 0)
+		first_cmd(data, (int **) fd);
+	i = 3;
+	while (i < data->argc - 2)
+	{
+		id[i - 2] = fork();
+		if (id[i - 2] == -1)
+		{
+			close_pipes(fd, data->argc - 4);
+			wait_ids(id, i - 2);
+			error_and_exit("Error with fork\n");
+		}
+		if (id[i - 2] == 0)
+			central_cmd(data, fd, i);
+		i++;
+	}
+	id[i - 2] = fork();
+	if (id[i - 2] == -1)
+	{
+		close_pipes(fd, data->argc - 4);
+		error_and_exit("Error with fork\n");
+	}
+	if (id[i - 2] == 0)
+		last_cmd(data, fd);
+	close_pipes(fd, data->argc - 4);
+	wait_ids(id, data->argc - 3);
 }
 
 t_data *create_data(int argc, char **argv, char **env, int pathi)
@@ -189,17 +381,17 @@ int main(int argc, char **argv, char **env)
 
 
 	if (argc < 5)
-		return (0);
+		error_and_exit("Five or more arguments expected\n");
 	pathi = where_is_path(env);
 	if (pathi == -1)
-		return (1);
+		error_and_exit("Expected PATH in env\n");
 	data = create_data(argc, argv, env, pathi);
 	if (!data)
-		return (1);
+		error_and_exit("Malloc error\n");
 	use_cmd(data);
 	clear_paths(data->paths, -1);
 	free(data);
-	return (0);
+	exit(0);
 }
 
 //int main(int argc, char **argv, char **env)
