@@ -100,6 +100,5 @@ int	main(int argc, char **argv, char **env)
 	use_cmd(data);
 	clear_paths(data->paths, -1);
 	free(data);
-	sleep(8);
 	exit(0);
 }

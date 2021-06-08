@@ -47,7 +47,7 @@ void	last_cmd(t_data *data, int **fd)
 	int		i;
 	int		fd_stdout;
 
-	file_fd = open(data->argv[data->argc - 1], O_CREAT | O_TRUNC | O_WRONLY);
+	file_fd = open(data->argv[data->argc - 1], O_CREAT | O_TRUNC | O_WRONLY, S_IRUSR | S_IRGRP | S_IWUSR | S_IROTH);
 	if (file_fd == -1 || write(file_fd, 0, 0) == -1)
 	{
 		if (file_fd != -1)
