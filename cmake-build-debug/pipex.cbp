@@ -78,16 +78,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/aabet/projects/pipex/pipex/central_cmd.c">
+			<Option target="pipex"/>
+		</Unit>
 		<Unit filename="/Users/aabet/projects/pipex/pipex/first_cmd.c">
 			<Option target="pipex"/>
 		</Unit>
 		<Unit filename="/Users/aabet/projects/pipex/pipex/ft_split.c">
 			<Option target="pipex"/>
 		</Unit>
+		<Unit filename="/Users/aabet/projects/pipex/pipex/last_cmd.c">
+			<Option target="pipex"/>
+		</Unit>
 		<Unit filename="/Users/aabet/projects/pipex/pipex/main.c">
 			<Option target="pipex"/>
 		</Unit>
 		<Unit filename="/Users/aabet/projects/pipex/pipex/pipex.h">
+			<Option target="pipex"/>
+		</Unit>
+		<Unit filename="/Users/aabet/projects/pipex/pipex/utils.c">
+			<Option target="pipex"/>
+		</Unit>
+		<Unit filename="/Users/aabet/projects/pipex/pipex/work_with_path.c">
 			<Option target="pipex"/>
 		</Unit>
 		<Unit filename="/Users/aabet/projects/pipex/pipex/CMakeLists.txt">

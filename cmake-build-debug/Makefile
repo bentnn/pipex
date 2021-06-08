@@ -142,6 +142,33 @@ pipex/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/build
 .PHONY : pipex/fast
 
+central_cmd.o: central_cmd.c.o
+
+.PHONY : central_cmd.o
+
+# target to build an object file
+central_cmd.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/central_cmd.c.o
+.PHONY : central_cmd.c.o
+
+central_cmd.i: central_cmd.c.i
+
+.PHONY : central_cmd.i
+
+# target to preprocess a source file
+central_cmd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/central_cmd.c.i
+.PHONY : central_cmd.c.i
+
+central_cmd.s: central_cmd.c.s
+
+.PHONY : central_cmd.s
+
+# target to generate assembly for a file
+central_cmd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/central_cmd.c.s
+.PHONY : central_cmd.c.s
+
 first_cmd.o: first_cmd.c.o
 
 .PHONY : first_cmd.o
@@ -196,6 +223,33 @@ ft_split.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/ft_split.c.s
 .PHONY : ft_split.c.s
 
+last_cmd.o: last_cmd.c.o
+
+.PHONY : last_cmd.o
+
+# target to build an object file
+last_cmd.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/last_cmd.c.o
+.PHONY : last_cmd.c.o
+
+last_cmd.i: last_cmd.c.i
+
+.PHONY : last_cmd.i
+
+# target to preprocess a source file
+last_cmd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/last_cmd.c.i
+.PHONY : last_cmd.c.i
+
+last_cmd.s: last_cmd.c.s
+
+.PHONY : last_cmd.s
+
+# target to generate assembly for a file
+last_cmd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/last_cmd.c.s
+.PHONY : last_cmd.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -223,6 +277,60 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/main.c.s
 .PHONY : main.c.s
 
+utils.o: utils.c.o
+
+.PHONY : utils.o
+
+# target to build an object file
+utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/utils.c.o
+.PHONY : utils.c.o
+
+utils.i: utils.c.i
+
+.PHONY : utils.i
+
+# target to preprocess a source file
+utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/utils.c.i
+.PHONY : utils.c.i
+
+utils.s: utils.c.s
+
+.PHONY : utils.s
+
+# target to generate assembly for a file
+utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/utils.c.s
+.PHONY : utils.c.s
+
+work_with_path.o: work_with_path.c.o
+
+.PHONY : work_with_path.o
+
+# target to build an object file
+work_with_path.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/work_with_path.c.o
+.PHONY : work_with_path.c.o
+
+work_with_path.i: work_with_path.c.i
+
+.PHONY : work_with_path.i
+
+# target to preprocess a source file
+work_with_path.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/work_with_path.c.i
+.PHONY : work_with_path.c.i
+
+work_with_path.s: work_with_path.c.s
+
+.PHONY : work_with_path.s
+
+# target to generate assembly for a file
+work_with_path.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pipex.dir/build.make CMakeFiles/pipex.dir/work_with_path.c.s
+.PHONY : work_with_path.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -232,15 +340,27 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... pipex"
+	@echo "... central_cmd.o"
+	@echo "... central_cmd.i"
+	@echo "... central_cmd.s"
 	@echo "... first_cmd.o"
 	@echo "... first_cmd.i"
 	@echo "... first_cmd.s"
 	@echo "... ft_split.o"
 	@echo "... ft_split.i"
 	@echo "... ft_split.s"
+	@echo "... last_cmd.o"
+	@echo "... last_cmd.i"
+	@echo "... last_cmd.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
+	@echo "... work_with_path.o"
+	@echo "... work_with_path.i"
+	@echo "... work_with_path.s"
 .PHONY : help
 
 

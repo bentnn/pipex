@@ -115,11 +115,67 @@ CMakeFiles/pipex.dir/first_cmd.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pipex.dir/first_cmd.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/aabet/projects/pipex/pipex/first_cmd.c -o CMakeFiles/pipex.dir/first_cmd.c.s
 
+CMakeFiles/pipex.dir/last_cmd.c.o: CMakeFiles/pipex.dir/flags.make
+CMakeFiles/pipex.dir/last_cmd.c.o: ../last_cmd.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aabet/projects/pipex/pipex/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/pipex.dir/last_cmd.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/pipex.dir/last_cmd.c.o -c /Users/aabet/projects/pipex/pipex/last_cmd.c
+
+CMakeFiles/pipex.dir/last_cmd.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pipex.dir/last_cmd.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/aabet/projects/pipex/pipex/last_cmd.c > CMakeFiles/pipex.dir/last_cmd.c.i
+
+CMakeFiles/pipex.dir/last_cmd.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pipex.dir/last_cmd.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/aabet/projects/pipex/pipex/last_cmd.c -o CMakeFiles/pipex.dir/last_cmd.c.s
+
+CMakeFiles/pipex.dir/central_cmd.c.o: CMakeFiles/pipex.dir/flags.make
+CMakeFiles/pipex.dir/central_cmd.c.o: ../central_cmd.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aabet/projects/pipex/pipex/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/pipex.dir/central_cmd.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/pipex.dir/central_cmd.c.o -c /Users/aabet/projects/pipex/pipex/central_cmd.c
+
+CMakeFiles/pipex.dir/central_cmd.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pipex.dir/central_cmd.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/aabet/projects/pipex/pipex/central_cmd.c > CMakeFiles/pipex.dir/central_cmd.c.i
+
+CMakeFiles/pipex.dir/central_cmd.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pipex.dir/central_cmd.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/aabet/projects/pipex/pipex/central_cmd.c -o CMakeFiles/pipex.dir/central_cmd.c.s
+
+CMakeFiles/pipex.dir/utils.c.o: CMakeFiles/pipex.dir/flags.make
+CMakeFiles/pipex.dir/utils.c.o: ../utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aabet/projects/pipex/pipex/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/pipex.dir/utils.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/pipex.dir/utils.c.o -c /Users/aabet/projects/pipex/pipex/utils.c
+
+CMakeFiles/pipex.dir/utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pipex.dir/utils.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/aabet/projects/pipex/pipex/utils.c > CMakeFiles/pipex.dir/utils.c.i
+
+CMakeFiles/pipex.dir/utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pipex.dir/utils.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/aabet/projects/pipex/pipex/utils.c -o CMakeFiles/pipex.dir/utils.c.s
+
+CMakeFiles/pipex.dir/work_with_path.c.o: CMakeFiles/pipex.dir/flags.make
+CMakeFiles/pipex.dir/work_with_path.c.o: ../work_with_path.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aabet/projects/pipex/pipex/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/pipex.dir/work_with_path.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/pipex.dir/work_with_path.c.o -c /Users/aabet/projects/pipex/pipex/work_with_path.c
+
+CMakeFiles/pipex.dir/work_with_path.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/pipex.dir/work_with_path.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/aabet/projects/pipex/pipex/work_with_path.c > CMakeFiles/pipex.dir/work_with_path.c.i
+
+CMakeFiles/pipex.dir/work_with_path.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/pipex.dir/work_with_path.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/aabet/projects/pipex/pipex/work_with_path.c -o CMakeFiles/pipex.dir/work_with_path.c.s
+
 # Object files for target pipex
 pipex_OBJECTS = \
 "CMakeFiles/pipex.dir/main.c.o" \
 "CMakeFiles/pipex.dir/ft_split.c.o" \
-"CMakeFiles/pipex.dir/first_cmd.c.o"
+"CMakeFiles/pipex.dir/first_cmd.c.o" \
+"CMakeFiles/pipex.dir/last_cmd.c.o" \
+"CMakeFiles/pipex.dir/central_cmd.c.o" \
+"CMakeFiles/pipex.dir/utils.c.o" \
+"CMakeFiles/pipex.dir/work_with_path.c.o"
 
 # External object files for target pipex
 pipex_EXTERNAL_OBJECTS =
@@ -127,9 +183,13 @@ pipex_EXTERNAL_OBJECTS =
 pipex: CMakeFiles/pipex.dir/main.c.o
 pipex: CMakeFiles/pipex.dir/ft_split.c.o
 pipex: CMakeFiles/pipex.dir/first_cmd.c.o
+pipex: CMakeFiles/pipex.dir/last_cmd.c.o
+pipex: CMakeFiles/pipex.dir/central_cmd.c.o
+pipex: CMakeFiles/pipex.dir/utils.c.o
+pipex: CMakeFiles/pipex.dir/work_with_path.c.o
 pipex: CMakeFiles/pipex.dir/build.make
 pipex: CMakeFiles/pipex.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/aabet/projects/pipex/pipex/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable pipex"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/aabet/projects/pipex/pipex/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable pipex"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pipex.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

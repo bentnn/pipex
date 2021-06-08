@@ -1,8 +1,8 @@
 #include "pipex.h"
 
-static int first_fd_settings(t_data *data, int **fd, int file_fd)
+static int	first_fd_settings(t_data *data, int **fd, int file_fd)
 {
-	int fd_stdout;
+	int	fd_stdout;
 
 	fd_stdout = dup(STDOUT_FILENO);
 	dup2(file_fd, STDIN_FILENO);
@@ -12,22 +12,16 @@ static int first_fd_settings(t_data *data, int **fd, int file_fd)
 	return (fd_stdout);
 }
 
-static void close_and_write(t_data *data, int **fd, int fd_stdout)
+static char	**try_to_launch_first_cmd(t_data *data, int fd_stdout)
 {
-	close_pipes(fd, data->argc - 4);
-	ft_putstr_fd("Malloc error\n", fd_stdout);
-}
-
-static char **try_to_launch_first_cmd(t_data *data, int fd_stdout, int **fd)
-{
-	char **commands;
-	char *path;
-	int i;
+	char	**commands;
+	char	*path;
+	int		i;
 
 	commands = ft_split(data->argv[2], ' ');
 	if (!commands)
 	{
-		close_and_write(data, fd, fd_stdout);
+		ft_putstr_fd("Malloc error\n", fd_stdout);
 		exit(1);
 	}
 	i = 0;
@@ -36,7 +30,7 @@ static char **try_to_launch_first_cmd(t_data *data, int fd_stdout, int **fd)
 		path = create_path_to_cmd(data, commands[0], i);
 		if (!path)
 		{
-			close_and_write(data, fd, fd_stdout);
+			ft_putstr_fd("Malloc error\n", fd_stdout);
 			exit(1);
 		}
 		execve(path, commands, data->env);
@@ -46,12 +40,12 @@ static char **try_to_launch_first_cmd(t_data *data, int fd_stdout, int **fd)
 	return (commands);
 }
 
-void first_cmd(t_data *data, int **fd)
+void	first_cmd(t_data *data, int **fd)
 {
-	int file_fd;
-	char **commands;
-	int i;
-	int fd_stdout;
+	int		file_fd;
+	char	**commands;
+	int		i;
+	int		fd_stdout;
 
 	file_fd = open(data->argv[1], O_RDONLY);
 	if (file_fd == -1 || read(file_fd, 0, 0) == -1)
@@ -62,7 +56,7 @@ void first_cmd(t_data *data, int **fd)
 		error_and_exit("Error: Problem with first file\n");
 	}
 	fd_stdout = first_fd_settings(data, fd, file_fd);
-	commands = try_to_launch_first_cmd(data, fd_stdout, fd);
+	commands = try_to_launch_first_cmd(data, fd_stdout);
 	i = 0;
 	while (commands[i])
 		free(commands[i++]);
